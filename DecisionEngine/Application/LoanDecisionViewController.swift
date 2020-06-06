@@ -187,17 +187,17 @@ extension LoanDecisionViewController: UIPickerViewDelegate, UIPickerViewDataSour
 
 extension LoanDecisionViewController: UITextFieldDelegate {
     
-    func configureTextFields() {
+    private func configureTextFields() {
         becomeTextFieldsDelegate()
         setUpTextEditing()
     }
 
-    func setUpTextEditing() {
+    private func setUpTextEditing() {
         self.idCodeTextField.addTarget(self, action: #selector(enableApplyButtonIfNeeded), for: .editingDidEnd)
         self.idCodeTextField.addDoneButtonToKeyboard(myAction:  #selector(self.idCodeTextField.resignFirstResponder))
     }
 
-    @objc func enableApplyButtonIfNeeded() {
+    @objc private func enableApplyButtonIfNeeded() {
         guard let loanAmountText = self.loanAmountTextField.text, let idCodeText = self.idCodeTextField.text, let amountPeriodText = self.loanPeriodTextField.text else { return }
 
         self.applyButton.isEnabled = !loanAmountText.isEmpty && !idCodeText.isEmpty && !amountPeriodText.isEmpty
@@ -213,21 +213,13 @@ extension LoanDecisionViewController: UITextFieldDelegate {
         removeDecisionShowApplyButton()
         
         if textField == self.idCodeTextField {
-            textField.keyboardType = .numberPad
-            self.loanAmountPickerView.isHidden = true
-            self.periodPickerView.isHidden = true
+            prepareForEditingCode()
         }
         else if textField == self.loanAmountTextField {
-            self.loanAmountPickerView.isHidden = !self.loanAmountPickerView.isHidden
-            self.periodPickerView.isHidden = true
-            
-            self.view.endEditing(true)
+            prepareForEditingAmount()
         }
         else if textField == self.loanPeriodTextField {
-            self.periodPickerView.isHidden = !self.periodPickerView.isHidden
-            self.loanAmountPickerView.isHidden = true
-            
-            self.view.endEditing(true)
+            prepareForEditingPeriod()
         }
     }
     
@@ -245,6 +237,38 @@ extension LoanDecisionViewController: UITextFieldDelegate {
         let count = text.count - substringToReplace.count + string.count
         
         return count <= 11
+    }
+    
+}
+
+private extension LoanDecisionViewController {
+    
+    func prepareForEditingCode() {
+        self.idCodeTextField.keyboardType = .numberPad
+        self.loanAmountPickerView.isHidden = true
+        self.periodPickerView.isHidden = true
+    }
+    
+    func prepareForEditingAmount() {
+        if let text = self.loanAmountTextField.text, text.isEmpty, let loanAmountOption = self.viewModel?.loanAmountOptions?.first {
+            self.loanAmountTextField.text = String(loanAmountOption)
+        }
+        
+        self.loanAmountPickerView.isHidden = !self.loanAmountPickerView.isHidden
+        self.periodPickerView.isHidden = true
+        
+        self.view.endEditing(true)
+    }
+    
+    func prepareForEditingPeriod() {
+        if let text = self.loanPeriodTextField.text, text.isEmpty, let loanPeriodOption = self.viewModel?.loanPeriodOptions?.first {
+            self.loanPeriodTextField.text = String(loanPeriodOption)
+        }
+        
+        self.periodPickerView.isHidden = !self.periodPickerView.isHidden
+        self.loanAmountPickerView.isHidden = true
+        
+        self.view.endEditing(true)
     }
     
 }
