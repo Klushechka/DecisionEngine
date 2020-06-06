@@ -11,11 +11,39 @@ import Foundation
 extension Int {
     
     func round(to nearest: Int) -> Int {
+        return self > 0 ? self.roundPositiveNumber(to: nearest) : self.roundNegativeNumber(to: nearest)
+    }
+    
+}
+
+private extension Int {
+    
+    func roundPositiveNumber(to nearest: Int) -> Int {
         guard self % nearest > 0 else {
             return self
         }
         
-        return self / nearest * nearest
+        guard self > nearest else {
+            return self >= nearest / 2 ? nearest : 0
+        }
+        
+        let valueToAdd = self % nearest >= nearest / 2 ? nearest : 0
+        
+        return self / nearest * nearest + valueToAdd
+    }
+    
+    func roundNegativeNumber(to nearest: Int) -> Int {
+        guard -self % nearest > 0 else {
+            return self
+        }
+        
+        guard -self > nearest else {
+            return -self >= nearest / 2 ? -nearest : 0
+        }
+        
+        let valueToAdd = -self % nearest >= nearest / 2 ? -nearest : 0
+        
+        return self / nearest * nearest + valueToAdd
     }
     
 }

@@ -13,7 +13,7 @@
 		69CF075924892CDA002BA691 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69CF075724892CDA002BA691 /* Main.storyboard */; };
 		69CF075B24892CDB002BA691 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69CF075A24892CDB002BA691 /* Assets.xcassets */; };
 		69CF075E24892CDB002BA691 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69CF075C24892CDB002BA691 /* LaunchScreen.storyboard */; };
-		69CF076924892CDB002BA691 /* DecisionEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CF076824892CDB002BA691 /* DecisionEngineTests.swift */; };
+		69CF076924892CDB002BA691 /* IntExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CF076824892CDB002BA691 /* IntExtensionTests.swift */; };
 		69CF077524892DC1002BA691 /* LoanDecisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CF077424892DC1002BA691 /* LoanDecisionViewController.swift */; };
 		69CF077724892DD5002BA691 /* LoanDecisionViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CF077624892DD5002BA691 /* LoanDecisionViewModelImpl.swift */; };
 		69CF077924892DE4002BA691 /* LoanDecisionViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CF077824892DE4002BA691 /* LoanDecisionViewModelProtocol.swift */; };
@@ -52,7 +52,7 @@
 		69CF075D24892CDB002BA691 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		69CF075F24892CDB002BA691 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69CF076424892CDB002BA691 /* DecisionEngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DecisionEngineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		69CF076824892CDB002BA691 /* DecisionEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionEngineTests.swift; sourceTree = "<group>"; };
+		69CF076824892CDB002BA691 /* IntExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensionTests.swift; sourceTree = "<group>"; };
 		69CF076A24892CDB002BA691 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69CF077424892DC1002BA691 /* LoanDecisionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanDecisionViewController.swift; sourceTree = "<group>"; };
 		69CF077624892DD5002BA691 /* LoanDecisionViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanDecisionViewModelImpl.swift; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 		69CF076724892CDB002BA691 /* DecisionEngineTests */ = {
 			isa = PBXGroup;
 			children = (
-				69CF076824892CDB002BA691 /* DecisionEngineTests.swift */,
+				69CF076824892CDB002BA691 /* IntExtensionTests.swift */,
 				69CF076A24892CDB002BA691 /* Info.plist */,
 			);
 			path = DecisionEngineTests;
@@ -338,7 +338,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69CF076924892CDB002BA691 /* DecisionEngineTests.swift in Sources */,
+				69CF076924892CDB002BA691 /* IntExtensionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
