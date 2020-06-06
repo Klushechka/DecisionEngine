@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ekf-3T-A6s">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Loan Decision View Controller-->
+        <scene sceneID="Ca3-n8-Oz5">
+            <objects>
+                <viewController storyboardIdentifier="LoanDecisionViewController" id="ekf-3T-A6s" customClass="LoanDecisionViewController" customModule="DecisionEngine" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UQo-8W-2JW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Lh-2B-v00" userLabel="ID code Text Field" customClass="BorderlessTextField" customModule="DecisionEngine" customModuleProvider="target">
+                                <rect key="frame" x="10" y="258.5" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3A8-Uz-GzU" userLabel="Loan Amount Text Field" customClass="BorderlessTextField" customModule="DecisionEngine" customModuleProvider="target">
+                                <rect key="frame" x="10" y="374" width="351" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EUR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXA-jk-sCv" userLabel="Currency Label">
+                                <rect key="frame" x="371" y="380.5" width="33" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qj5-SW-oEF" userLabel="Period PickerView">
+                                <rect key="frame" x="10" y="496.5" width="394" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="F2H-Gv-Dxg"/>
+                                </constraints>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TzQ-tR-Q3t" userLabel="ID Info Label">
+                                <rect key="frame" x="10" y="297.5" width="394" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntc-p8-nSV" userLabel="Apply Button">
+                                <rect key="frame" x="20" y="611.5" width="374" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="applyButtonTapped:" destination="ekf-3T-A6s" eventType="touchUpInside" id="4Fk-Nv-pSP"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLc-oh-23v" userLabel="Result Label">
+                                <rect key="frame" x="10" y="671.5" width="394" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aE2-cA-ECa" userLabel="LoanPeriod Text Field" customClass="BorderlessTextField" customModule="DecisionEngine" customModuleProvider="target">
+                                <rect key="frame" x="10" y="463.5" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MlQ-y1-D0Y" userLabel="ID code Title Label" customClass="TitleLabel" customModule="DecisionEngine" customModuleProvider="target">
+                                <rect key="frame" x="10" y="232.5" width="394" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eg-CZ-ZeU" userLabel="Loan Amount Title Label" customClass="TitleLabel" customModule="DecisionEngine" customModuleProvider="target">
+                                <rect key="frame" x="10" y="348.5" width="394" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZG-Ag-Lex" userLabel="Loan Period Title Label" customClass="TitleLabel" customModule="DecisionEngine" customModuleProvider="target">
+                                <rect key="frame" x="10" y="438" width="394" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHY-oF-SLD" userLabel="Loan Amount Picker View">
+                                <rect key="frame" x="10" y="407" width="351" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="oHO-Vt-v3l"/>
+                                </constraints>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4v-jk-H72" userLabel="Approval Label">
+                                <rect key="frame" x="20" y="666.5" width="374" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hn-6K-k68" userLabel="Max Sum Label">
+                                <rect key="frame" x="20" y="686.5" width="374" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ntc-p8-nSV" firstAttribute="top" secondItem="qj5-SW-oEF" secondAttribute="bottom" constant="5" id="0Zm-X6-YFE"/>
+                            <constraint firstItem="aE2-cA-ECa" firstAttribute="trailing" secondItem="mZG-Ag-Lex" secondAttribute="trailing" id="0ft-06-hRB"/>
+                            <constraint firstItem="h4v-jk-H72" firstAttribute="leading" secondItem="ntc-p8-nSV" secondAttribute="leading" id="1Qh-W1-UH8"/>
+                            <constraint firstItem="h4v-jk-H72" firstAttribute="top" secondItem="ntc-p8-nSV" secondAttribute="bottom" constant="20" id="26N-9n-vao"/>
+                            <constraint firstItem="2hn-6K-k68" firstAttribute="centerX" secondItem="UQo-8W-2JW" secondAttribute="centerX" id="3Nt-Lb-PGm"/>
+                            <constraint firstItem="2hn-6K-k68" firstAttribute="leading" secondItem="ntc-p8-nSV" secondAttribute="leading" id="40q-cg-htb"/>
+                            <constraint firstItem="gLc-oh-23v" firstAttribute="top" secondItem="ntc-p8-nSV" secondAttribute="bottom" constant="25" id="5AN-rY-tgJ"/>
+                            <constraint firstItem="3eg-CZ-ZeU" firstAttribute="trailing" secondItem="7Lh-2B-v00" secondAttribute="trailing" id="6vI-iu-TRE"/>
+                            <constraint firstItem="2hn-6K-k68" firstAttribute="top" secondItem="h4v-jk-H72" secondAttribute="bottom" constant="20" id="759-IQ-L92"/>
+                            <constraint firstItem="pc4-Bo-fOq" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2hn-6K-k68" secondAttribute="bottom" constant="20" id="ANm-nB-dQa"/>
+                            <constraint firstItem="3A8-Uz-GzU" firstAttribute="leading" secondItem="pc4-Bo-fOq" secondAttribute="leading" constant="10" id="Arn-XX-1dg"/>
+                            <constraint firstItem="mZG-Ag-Lex" firstAttribute="centerY" secondItem="UQo-8W-2JW" secondAttribute="centerY" id="DbR-FC-Dqq"/>
+                            <constraint firstItem="qj5-SW-oEF" firstAttribute="trailing" secondItem="aE2-cA-ECa" secondAttribute="trailing" id="Env-bb-idj"/>
+                            <constraint firstItem="3A8-Uz-GzU" firstAttribute="top" secondItem="3eg-CZ-ZeU" secondAttribute="bottom" constant="5" id="H3Z-rd-g5t"/>
+                            <constraint firstItem="aE2-cA-ECa" firstAttribute="leading" secondItem="mZG-Ag-Lex" secondAttribute="leading" id="JHM-Nj-EOz"/>
+                            <constraint firstItem="2hn-6K-k68" firstAttribute="trailing" secondItem="ntc-p8-nSV" secondAttribute="trailing" id="JOq-dk-KbF"/>
+                            <constraint firstItem="pc4-Bo-fOq" firstAttribute="trailing" secondItem="gLc-oh-23v" secondAttribute="trailing" constant="10" id="M7b-gL-rof"/>
+                            <constraint firstItem="TzQ-tR-Q3t" firstAttribute="top" secondItem="7Lh-2B-v00" secondAttribute="bottom" constant="5" id="McM-dd-yeK"/>
+                            <constraint firstItem="h4v-jk-H72" firstAttribute="centerX" secondItem="UQo-8W-2JW" secondAttribute="centerX" id="NW3-2a-duv"/>
+                            <constraint firstItem="pc4-Bo-fOq" firstAttribute="trailing" secondItem="aE2-cA-ECa" secondAttribute="trailing" constant="10" id="NzQ-sk-LyI"/>
+                            <constraint firstItem="MlQ-y1-D0Y" firstAttribute="top" relation="greaterThanOrEqual" secondItem="pc4-Bo-fOq" secondAttribute="top" constant="15" id="Qpo-lT-4li"/>
+                            <constraint firstItem="qj5-SW-oEF" firstAttribute="centerX" secondItem="UQo-8W-2JW" secondAttribute="centerX" id="Rm2-Ai-nsg"/>
+                            <constraint firstItem="ntc-p8-nSV" firstAttribute="leading" secondItem="pc4-Bo-fOq" secondAttribute="leading" constant="20" id="SMI-fp-IGE"/>
+                            <constraint firstItem="mZG-Ag-Lex" firstAttribute="top" secondItem="3A8-Uz-GzU" secondAttribute="bottom" constant="30" id="V5w-mg-WYV"/>
+                            <constraint firstItem="aE2-cA-ECa" firstAttribute="centerX" secondItem="pc4-Bo-fOq" secondAttribute="centerX" id="W7M-lp-XOt"/>
+                            <constraint firstItem="3eg-CZ-ZeU" firstAttribute="leading" secondItem="7Lh-2B-v00" secondAttribute="leading" id="WgU-fA-9Dk"/>
+                            <constraint firstItem="CHY-oF-SLD" firstAttribute="leading" secondItem="3A8-Uz-GzU" secondAttribute="leading" id="X7V-2z-jnB"/>
+                            <constraint firstItem="pc4-Bo-fOq" firstAttribute="trailing" secondItem="qXA-jk-sCv" secondAttribute="trailing" constant="10" id="YS8-Y7-5Fa"/>
+                            <constraint firstItem="aE2-cA-ECa" firstAttribute="top" secondItem="mZG-Ag-Lex" secondAttribute="bottom" constant="5" id="aU4-vB-Qpd"/>
+                            <constraint firstItem="aE2-cA-ECa" firstAttribute="leading" secondItem="pc4-Bo-fOq" secondAttribute="leading" constant="10" id="bZh-w1-j1A"/>
+                            <constraint firstItem="CHY-oF-SLD" firstAttribute="top" secondItem="3A8-Uz-GzU" secondAttribute="bottom" constant="-1" id="e3i-N2-qP7"/>
+                            <constraint firstItem="qj5-SW-oEF" firstAttribute="leading" secondItem="aE2-cA-ECa" secondAttribute="leading" id="e3u-l9-FEd"/>
+                            <constraint firstItem="TzQ-tR-Q3t" firstAttribute="leading" secondItem="pc4-Bo-fOq" secondAttribute="leading" constant="10" id="eiV-2Q-c5J"/>
+                            <constraint firstItem="7Lh-2B-v00" firstAttribute="trailing" secondItem="MlQ-y1-D0Y" secondAttribute="trailing" id="gFu-5I-VrS"/>
+                            <constraint firstItem="pc4-Bo-fOq" firstAttribute="trailing" secondItem="TzQ-tR-Q3t" secondAttribute="trailing" constant="10" id="gIL-a7-l7F"/>
+                            <constraint firstItem="qj5-SW-oEF" firstAttribute="top" secondItem="aE2-cA-ECa" secondAttribute="bottom" constant="-1" id="ju4-WS-8L0"/>
+                            <constraint firstItem="pc4-Bo-fOq" firstAttribute="trailing" secondItem="ntc-p8-nSV" secondAttribute="trailing" constant="20" id="jy6-KK-ORZ"/>
+                            <constraint firstItem="7Lh-2B-v00" firstAttribute="top" secondItem="MlQ-y1-D0Y" secondAttribute="bottom" constant="5" id="lVf-Gs-vqO"/>
+                            <constraint firstItem="pc4-Bo-fOq" firstAttribute="trailing" secondItem="7Lh-2B-v00" secondAttribute="trailing" constant="10" id="lex-Xl-krh"/>
+                            <constraint firstItem="7Lh-2B-v00" firstAttribute="leading" secondItem="pc4-Bo-fOq" secondAttribute="leading" constant="10" id="mnE-Gk-fKG"/>
+                            <constraint firstItem="pc4-Bo-fOq" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gLc-oh-23v" secondAttribute="bottom" constant="20" id="nJ0-jv-xYt"/>
+                            <constraint firstItem="qXA-jk-sCv" firstAttribute="centerY" secondItem="3A8-Uz-GzU" secondAttribute="centerY" id="okg-us-JkZ"/>
+                            <constraint firstItem="3eg-CZ-ZeU" firstAttribute="top" secondItem="TzQ-tR-Q3t" secondAttribute="bottom" constant="30" id="qAF-UF-kNM"/>
+                            <constraint firstItem="gLc-oh-23v" firstAttribute="leading" secondItem="pc4-Bo-fOq" secondAttribute="leading" constant="10" id="qjZ-n9-5Uc"/>
+                            <constraint firstItem="h4v-jk-H72" firstAttribute="trailing" secondItem="ntc-p8-nSV" secondAttribute="trailing" id="qqr-mY-P3i"/>
+                            <constraint firstItem="CHY-oF-SLD" firstAttribute="trailing" secondItem="3A8-Uz-GzU" secondAttribute="trailing" id="vvu-2g-w2e"/>
+                            <constraint firstItem="7Lh-2B-v00" firstAttribute="leading" secondItem="MlQ-y1-D0Y" secondAttribute="leading" id="wic-aG-AfM"/>
+                            <constraint firstItem="qXA-jk-sCv" firstAttribute="leading" secondItem="3A8-Uz-GzU" secondAttribute="trailing" constant="10" id="xBU-Vh-RQg"/>
+                            <constraint firstItem="ntc-p8-nSV" firstAttribute="centerX" secondItem="UQo-8W-2JW" secondAttribute="centerX" id="zKI-lT-qid"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pc4-Bo-fOq"/>
+                    </view>
+                    <connections>
+                        <outlet property="applyButton" destination="ntc-p8-nSV" id="Z4A-hv-wyL"/>
+                        <outlet property="approvalResultLabel" destination="h4v-jk-H72" id="CWU-dO-aih"/>
+                        <outlet property="currencyLabel" destination="qXA-jk-sCv" id="6OA-bs-YAa"/>
+                        <outlet property="idCodeTextField" destination="7Lh-2B-v00" id="LXv-gI-5HX"/>
+                        <outlet property="idCodeTitleLabel" destination="MlQ-y1-D0Y" id="Ddk-dm-X6y"/>
+                        <outlet property="idInfoLabel" destination="TzQ-tR-Q3t" id="v4R-dn-XRV"/>
+                        <outlet property="loanAmountPickerView" destination="CHY-oF-SLD" id="eJ0-Rb-cnr"/>
+                        <outlet property="loanAmountTextField" destination="3A8-Uz-GzU" id="fnm-s6-LCW"/>
+                        <outlet property="loanAmountTitleLabel" destination="3eg-CZ-ZeU" id="WIn-bW-LOg"/>
+                        <outlet property="loanPeriodTextField" destination="aE2-cA-ECa" id="jk2-Wt-ISy"/>
+                        <outlet property="loanPeriodTitleLabel" destination="mZG-Ag-Lex" id="6fx-ic-TYI"/>
+                        <outlet property="maxLoanSumLabel" destination="2hn-6K-k68" id="Vq4-hy-lIO"/>
+                        <outlet property="periodPickerView" destination="qj5-SW-oEF" id="ZOq-Td-sVx"/>
+                        <outlet property="resultLabel" destination="gLc-oh-23v" id="KlY-hP-YJi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4UD-qC-9dy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="40.579710144927539" y="120.53571428571428"/>
+        </scene>
+    </scenes>
+</document>

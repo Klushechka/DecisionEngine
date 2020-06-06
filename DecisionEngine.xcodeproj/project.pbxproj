@@ -14,6 +14,22 @@
 		69CF075B24892CDB002BA691 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69CF075A24892CDB002BA691 /* Assets.xcassets */; };
 		69CF075E24892CDB002BA691 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69CF075C24892CDB002BA691 /* LaunchScreen.storyboard */; };
 		69CF076924892CDB002BA691 /* DecisionEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CF076824892CDB002BA691 /* DecisionEngineTests.swift */; };
+		69CF077524892DC1002BA691 /* LoanDecisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CF077424892DC1002BA691 /* LoanDecisionViewController.swift */; };
+		69CF077724892DD5002BA691 /* LoanDecisionViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CF077624892DD5002BA691 /* LoanDecisionViewModelImpl.swift */; };
+		69CF077924892DE4002BA691 /* LoanDecisionViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CF077824892DE4002BA691 /* LoanDecisionViewModelProtocol.swift */; };
+		69CF077B24892E93002BA691 /* LoanDecisionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69CF077A24892E93002BA691 /* LoanDecisionViewController.storyboard */; };
+		69CF07802489369C002BA691 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CF077F2489369C002BA691 /* Constants.swift */; };
+		69CF078324894492002BA691 /* BordlessLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CF078224894492002BA691 /* BordlessLabel.swift */; };
+		69CF078724895A83002BA691 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CF078624895A83002BA691 /* TitleLabel.swift */; };
+		69CF078A24895EF3002BA691 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CF078924895EF3002BA691 /* UITextField+Extension.swift */; };
+		69CF078C2489866F002BA691 /* UIPickerView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CF078B2489866F002BA691 /* UIPickerView+Extension.swift */; };
+		69CF078F248A5494002BA691 /* DecisionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CF078E248A5493002BA691 /* DecisionEngine.swift */; };
+		69CF0792248A5690002BA691 /* LoanRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CF0791248A5690002BA691 /* LoanRequest.swift */; };
+		69CF0794248A5759002BA691 /* ClientCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CF0793248A5759002BA691 /* ClientCategory.swift */; };
+		69CF0796248A5E8C002BA691 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CF0795248A5E8C002BA691 /* Customer.swift */; };
+		69CF0798248A5EF4002BA691 /* StubbedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CF0797248A5EF4002BA691 /* StubbedData.swift */; };
+		69CF079A248A9149002BA691 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CF0799248A9149002BA691 /* UIViewController+Extension.swift */; };
+		69CF079C248BE8F8002BA691 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CF079B248BE8F8002BA691 /* Int+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +54,22 @@
 		69CF076424892CDB002BA691 /* DecisionEngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DecisionEngineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		69CF076824892CDB002BA691 /* DecisionEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionEngineTests.swift; sourceTree = "<group>"; };
 		69CF076A24892CDB002BA691 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69CF077424892DC1002BA691 /* LoanDecisionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanDecisionViewController.swift; sourceTree = "<group>"; };
+		69CF077624892DD5002BA691 /* LoanDecisionViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanDecisionViewModelImpl.swift; sourceTree = "<group>"; };
+		69CF077824892DE4002BA691 /* LoanDecisionViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanDecisionViewModelProtocol.swift; sourceTree = "<group>"; };
+		69CF077A24892E93002BA691 /* LoanDecisionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoanDecisionViewController.storyboard; sourceTree = "<group>"; };
+		69CF077F2489369C002BA691 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		69CF078224894492002BA691 /* BordlessLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BordlessLabel.swift; sourceTree = "<group>"; };
+		69CF078624895A83002BA691 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
+		69CF078924895EF3002BA691 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		69CF078B2489866F002BA691 /* UIPickerView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPickerView+Extension.swift"; sourceTree = "<group>"; };
+		69CF078E248A5493002BA691 /* DecisionEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionEngine.swift; sourceTree = "<group>"; };
+		69CF0791248A5690002BA691 /* LoanRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanRequest.swift; sourceTree = "<group>"; };
+		69CF0793248A5759002BA691 /* ClientCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientCategory.swift; sourceTree = "<group>"; };
+		69CF0795248A5E8C002BA691 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		69CF0797248A5EF4002BA691 /* StubbedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubbedData.swift; sourceTree = "<group>"; };
+		69CF0799248A9149002BA691 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		69CF079B248BE8F8002BA691 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +111,13 @@
 		69CF075024892CDA002BA691 /* DecisionEngine */ = {
 			isa = PBXGroup;
 			children = (
-				69CF075124892CDA002BA691 /* AppDelegate.swift */,
-				69CF075324892CDA002BA691 /* SceneDelegate.swift */,
+				69CF077324892CFB002BA691 /* Application */,
+				69CF07812489445C002BA691 /* Utils */,
+				69CF078824895ED9002BA691 /* Extensions */,
+				69CF077D2489365D002BA691 /* Supporting Files */,
+				69CF077C24893647002BA691 /* Resources */,
 				69CF075524892CDA002BA691 /* ViewController.swift */,
 				69CF075724892CDA002BA691 /* Main.storyboard */,
-				69CF075A24892CDB002BA691 /* Assets.xcassets */,
-				69CF075C24892CDB002BA691 /* LaunchScreen.storyboard */,
-				69CF075F24892CDB002BA691 /* Info.plist */,
 			);
 			path = DecisionEngine;
 			sourceTree = "<group>";
@@ -97,6 +129,86 @@
 				69CF076A24892CDB002BA691 /* Info.plist */,
 			);
 			path = DecisionEngineTests;
+			sourceTree = "<group>";
+		};
+		69CF077324892CFB002BA691 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				69CF0790248A567E002BA691 /* Entities */,
+				69CF077A24892E93002BA691 /* LoanDecisionViewController.storyboard */,
+				69CF077424892DC1002BA691 /* LoanDecisionViewController.swift */,
+				69CF077624892DD5002BA691 /* LoanDecisionViewModelImpl.swift */,
+				69CF077824892DE4002BA691 /* LoanDecisionViewModelProtocol.swift */,
+				69CF078D248A5480002BA691 /* DecisionEngine */,
+				69CF077E2489368A002BA691 /* Constants */,
+				69CF0797248A5EF4002BA691 /* StubbedData.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		69CF077C24893647002BA691 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				69CF075A24892CDB002BA691 /* Assets.xcassets */,
+				69CF075F24892CDB002BA691 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		69CF077D2489365D002BA691 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				69CF075124892CDA002BA691 /* AppDelegate.swift */,
+				69CF075324892CDA002BA691 /* SceneDelegate.swift */,
+				69CF075C24892CDB002BA691 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		69CF077E2489368A002BA691 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				69CF077F2489369C002BA691 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		69CF07812489445C002BA691 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				69CF078224894492002BA691 /* BordlessLabel.swift */,
+				69CF078624895A83002BA691 /* TitleLabel.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		69CF078824895ED9002BA691 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				69CF078924895EF3002BA691 /* UITextField+Extension.swift */,
+				69CF078B2489866F002BA691 /* UIPickerView+Extension.swift */,
+				69CF0799248A9149002BA691 /* UIViewController+Extension.swift */,
+				69CF079B248BE8F8002BA691 /* Int+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		69CF078D248A5480002BA691 /* DecisionEngine */ = {
+			isa = PBXGroup;
+			children = (
+				69CF078E248A5493002BA691 /* DecisionEngine.swift */,
+			);
+			path = DecisionEngine;
+			sourceTree = "<group>";
+		};
+		69CF0790248A567E002BA691 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				69CF0791248A5690002BA691 /* LoanRequest.swift */,
+				69CF0793248A5759002BA691 /* ClientCategory.swift */,
+				69CF0795248A5E8C002BA691 /* Customer.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +295,7 @@
 				69CF075E24892CDB002BA691 /* LaunchScreen.storyboard in Resources */,
 				69CF075B24892CDB002BA691 /* Assets.xcassets in Resources */,
 				69CF075924892CDA002BA691 /* Main.storyboard in Resources */,
+				69CF077B24892E93002BA691 /* LoanDecisionViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,8 +313,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69CF079A248A9149002BA691 /* UIViewController+Extension.swift in Sources */,
+				69CF078F248A5494002BA691 /* DecisionEngine.swift in Sources */,
+				69CF0792248A5690002BA691 /* LoanRequest.swift in Sources */,
+				69CF0794248A5759002BA691 /* ClientCategory.swift in Sources */,
+				69CF077524892DC1002BA691 /* LoanDecisionViewController.swift in Sources */,
 				69CF075624892CDA002BA691 /* ViewController.swift in Sources */,
+				69CF0798248A5EF4002BA691 /* StubbedData.swift in Sources */,
+				69CF078724895A83002BA691 /* TitleLabel.swift in Sources */,
 				69CF075224892CDA002BA691 /* AppDelegate.swift in Sources */,
+				69CF077724892DD5002BA691 /* LoanDecisionViewModelImpl.swift in Sources */,
+				69CF078A24895EF3002BA691 /* UITextField+Extension.swift in Sources */,
+				69CF079C248BE8F8002BA691 /* Int+Extension.swift in Sources */,
+				69CF078324894492002BA691 /* BordlessLabel.swift in Sources */,
+				69CF0796248A5E8C002BA691 /* Customer.swift in Sources */,
+				69CF07802489369C002BA691 /* Constants.swift in Sources */,
+				69CF077924892DE4002BA691 /* LoanDecisionViewModelProtocol.swift in Sources */,
+				69CF078C2489866F002BA691 /* UIPickerView+Extension.swift in Sources */,
 				69CF075424892CDA002BA691 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,7 +492,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PTT8AW7PPX;
-				INFOPLIST_FILE = DecisionEngine/Info.plist;
+				INFOPLIST_FILE = DecisionEngine/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -382,7 +510,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PTT8AW7PPX;
-				INFOPLIST_FILE = DecisionEngine/Info.plist;
+				INFOPLIST_FILE = DecisionEngine/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
