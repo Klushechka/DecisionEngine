@@ -14,7 +14,7 @@ final class LoanDecisionViewModelImpl: LoanDecisionViewModel {
     var loanAmountOptions: [Int]?
     
     var errorOccured: ((Error) -> Void)?
-    var loanDecisionCompleted: ((Int) -> Void)?
+    var loanDecisionCompleted: ((Bool, Int) -> Void)?
     
     var decisionEngine: DecisionEngine?
     
@@ -41,11 +41,9 @@ final class LoanDecisionViewModelImpl: LoanDecisionViewModel {
         
         let customerCategory = customer.category
     
-        let maxLoanSum = self.decisionEngine?.evaluateLoan(customerCategory: customerCategory, desiredLoanAmount: request.desiredLoanAmount)
+        guard let decisionOnLoan = self.decisionEngine?.evaluateLoan(customerCategory: customerCategory, desiredLoanAmount: request.desiredLoanAmount, desiredLoanPeriod: request.desiredLoanPeriod) else { return }
             
-        if let maxLoanSum = maxLoanSum {
-            self.loanDecisionCompleted?(maxLoanSum)
-        }
+        self.loanDecisionCompleted?(decisionOnLoan.isCurrentLoanApprovable, decisionOnLoan.maxLoanSum)
     }
     
 }

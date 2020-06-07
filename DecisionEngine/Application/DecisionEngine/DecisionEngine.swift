@@ -16,7 +16,26 @@ final class DecisionEngine {
     static let minLoanAmount = 2000
     static let maxLoanAmount = 10000
     
-    func evaluateLoan(customerCategory: ClientCategory, desiredLoanAmount: Int) -> Int {
+    func evaluateLoan(customerCategory: ClientCategory, desiredLoanAmount: Int, desiredLoanPeriod: Int) -> (isCurrentLoanApprovable: Bool, maxLoanSum: Int) {
+        let isLoanApprovable = isCurrentLoanApprovable(customerCategory: customerCategory, desiredLoanAmount: desiredLoanAmount, desiredPeriod: desiredLoanPeriod)
+        let maxLoanSum = maxLoanAmount(customerCategory: customerCategory, desiredLoanAmount: desiredLoanAmount)
+        
+        return (isLoanApprovable, maxLoanSum)
+    }
+    
+    func isCurrentLoanApprovable(customerCategory: ClientCategory, desiredLoanAmount: Int, desiredPeriod: Int) -> Bool {
+        guard customerCategory != .debt else {
+            return false
+        }
+        
+        let floatAmount = Float(desiredLoanAmount)
+        let floatCreditModifier = Float(customerCategory.creditModifier)
+        let floatLoanPeriod = Float(desiredPeriod)
+        
+        return creditScore(creditModifier: floatCreditModifier, amount: floatAmount, period: floatLoanPeriod) >= 1
+    }
+    
+    func maxLoanAmount(customerCategory: ClientCategory, desiredLoanAmount: Int) -> Int {
         guard customerCategory != .debt else {
             return 0
         }
@@ -37,7 +56,7 @@ final class DecisionEngine {
         return creditModifier / amount * period
     }
     
-    internal func maxAmount(with sum: Int) -> Int {
+    internal func adjustMaxAmountIfNeeded(with sum: Int) -> Int {
         if sum > DecisionEngine.maxLoanAmount {
             return DecisionEngine.maxLoanAmount
         }

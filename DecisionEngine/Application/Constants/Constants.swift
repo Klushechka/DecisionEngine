@@ -26,4 +26,10 @@ struct Constants {
     static let wrongCodeCharsNumber = "ID code must contain 11 digits."
     static let closeButton = "OK"
     
+    static let isLoanApprovable = "With these amount and period the loan %@ be approved."
+    static let loanCanNotBeApproved = "The loan CAN NOT be approved."
+    static let canCaps = "CAN"
+    static let canNotCaps = "CAN NOT"
+    static let maxLoanAmountIs = "Max loan amount with max period is €%@."
+    
 }

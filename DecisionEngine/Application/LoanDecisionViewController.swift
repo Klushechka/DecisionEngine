@@ -23,8 +23,8 @@ final class LoanDecisionViewController: UIViewController {
     @IBOutlet weak var loanPeriodTitleLabel: TitleLabel!
     @IBOutlet weak var loanPeriodTextField: BorderlessTextField!
     @IBOutlet weak var periodPickerView: UIPickerView!
+    
     @IBOutlet weak var applyButton: UIButton!
-    @IBOutlet weak var resultLabel: UILabel!
     
     @IBOutlet weak var approvalResultLabel: UILabel!
     @IBOutlet weak var maxLoanSumLabel: UILabel!
@@ -35,14 +35,14 @@ final class LoanDecisionViewController: UIViewController {
         super.viewDidLoad()
         
         setUpViewModelAndCallbacks()
-        setContent()
+        fillInContent()
         decorateElements()
         setUpPickerViews()
         
         configureTextFields()
     }
     
-    private func setContent() {
+    private func fillInContent() {
         self.idCodeTitleLabel.text = Constants.idCodeTitle
         self.idCodeTextField.placeholder = Constants.idCodePlaceholder
         self.idInfoLabel.text = Constants.idCodeInfoLabel
@@ -53,7 +53,9 @@ final class LoanDecisionViewController: UIViewController {
         self.loanAmountTextField.placeholder = "0"
         
         self.loanPeriodTitleLabel.text = Constants.loanPeriodTitle
-        self.loanPeriodTextField.placeholder = "12"
+        self.loanPeriodTextField.placeholder = "0"
+        
+        self.applyButton.setTitle(Constants.applyTitle, for: .normal)
     }
     
     private func decorateElements() {
@@ -63,15 +65,14 @@ final class LoanDecisionViewController: UIViewController {
         self.idInfoLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
         self.idInfoLabel.textColor = .lightGray
         
-        self.applyButton.setTitle(Constants.applyTitle, for: .normal)
         self.applyButton.isEnabled = false
         self.applyButton.titleLabel?.font = UIFont.systemFont(ofSize: 21, weight: .medium)
         
-        self.maxLoanSumLabel.font = UIFont.systemFont(ofSize: 21, weight: .medium)
-        self.maxLoanSumLabel.textColor = .darkGray
-        
-        self.approvalResultLabel.font = UIFont.systemFont(ofSize: 21, weight: .medium)
+        self.approvalResultLabel.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         self.approvalResultLabel.textColor = .darkGray
+        
+        self.maxLoanSumLabel.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+        self.maxLoanSumLabel.textColor = .darkGray
     }
     
     private func removeDecisionShowApplyButton() {
@@ -106,14 +107,18 @@ final class LoanDecisionViewController: UIViewController {
     }
     
     private func setUpDecisionCallback() {
-        self.viewModel?.loanDecisionCompleted = { [weak self] maxLoanSum in
+        self.viewModel?.loanDecisionCompleted = { [weak self] isCurrentLoanApprovable, maxLoanSum in
             guard let self = self else { return }
             
-            let canOrNot = maxLoanSum > 0 ? "CAN" : "CAN NOT"
-            
-                self.approvalResultLabel.text = "The loan \(canOrNot) be approved."
+            if maxLoanSum == 0 {
+                self.approvalResultLabel.text = Constants.loanCanNotBeApproved
+            }
+            else if maxLoanSum > 0 {
+                let canOrNot = isCurrentLoanApprovable ? Constants.canCaps : Constants.canNotCaps
                 
-                self.maxLoanSumLabel.text = maxLoanSum > 0 ? "Max loan sum is \(maxLoanSum) €" : ""
+                self.approvalResultLabel.text = String(format: Constants.isLoanApprovable, canOrNot)
+                self.maxLoanSumLabel.text = maxLoanSum > 0 ? String(format: Constants.maxLoanAmountIs, String(maxLoanSum)) : ""
+            }
             
             self.applyButton.isHidden = true
         }
@@ -121,6 +126,9 @@ final class LoanDecisionViewController: UIViewController {
     
     @IBAction func applyButtonTapped(_ sender: Any) {
         guard let idCodeText = self.idCodeTextField.text, let amount = Int(self.loanAmountTextField.text ?? ""), let period = Int(self.loanPeriodTextField.text ?? "") else { return }
+        
+        self.periodPickerView.isHidden = true
+        self.loanAmountPickerView.isHidden = true
         
         let request = LoanRequest(idCode: idCodeText, desiredLoanAmount: amount, desiredLoanPeriod: period)
         self.viewModel?.resultForRequest(request)
