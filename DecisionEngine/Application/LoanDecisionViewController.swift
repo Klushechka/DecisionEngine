@@ -223,6 +223,10 @@ extension LoanDecisionViewController: UITextFieldDelegate {
         }
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        enableApplyButtonIfNeeded()
+    }
+    
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         

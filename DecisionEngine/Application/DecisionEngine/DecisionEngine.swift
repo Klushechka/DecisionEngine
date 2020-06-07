@@ -16,12 +16,12 @@ final class DecisionEngine {
     static let minLoanAmount = 2000
     static let maxLoanAmount = 10000
     
-    func evaluateLoan(for customerCategory: ClientCategory, with request: LoanRequest) -> Int {
+    func evaluateLoan(customerCategory: ClientCategory, desiredLoanAmount: Int) -> Int {
         guard customerCategory != .debt else {
             return 0
         }
         
-        let floatAmount = Float(request.desiredLoanAmount)
+        let floatAmount = Float(desiredLoanAmount)
         let floatCreditModifier = Float(customerCategory.creditModifier)
         
         let maxPeriodScore = creditScore(creditModifier: floatCreditModifier, amount: floatAmount, period: Float(DecisionEngine.maxPeriod))
@@ -33,13 +33,17 @@ final class DecisionEngine {
         return finalMaxLoanAmount
     }
     
-    func creditScore(creditModifier: Float, amount: Float, period: Float) -> Float {
+    internal func creditScore(creditModifier: Float, amount: Float, period: Float) -> Float {
         return creditModifier / amount * period
     }
     
-    func maxAmount(with sum: Int) -> Int {
+    internal func maxAmount(with sum: Int) -> Int {
         if sum > DecisionEngine.maxLoanAmount {
             return DecisionEngine.maxLoanAmount
+        }
+        
+        if sum < DecisionEngine.minLoanAmount  {
+            return sum.round(to: 1000) == DecisionEngine.minLoanAmount ? DecisionEngine.minLoanAmount : 0
         }
         
         return sum.round(to: 100)

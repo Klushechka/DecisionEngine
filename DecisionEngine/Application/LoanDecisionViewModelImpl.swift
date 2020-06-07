@@ -41,7 +41,7 @@ final class LoanDecisionViewModelImpl: LoanDecisionViewModel {
         
         let customerCategory = customer.category
     
-        let maxLoanSum = self.decisionEngine?.evaluateLoan(for: customerCategory, with: request)
+        let maxLoanSum = self.decisionEngine?.evaluateLoan(customerCategory: customerCategory, desiredLoanAmount: request.desiredLoanAmount)
             
         if let maxLoanSum = maxLoanSum {
             self.loanDecisionCompleted?(maxLoanSum)

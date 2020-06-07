@@ -10,12 +10,12 @@ import Foundation
 
 enum ClientCategory {
     
-    case debt, firstSegment, secongSegment, thirdSegment
+    case debt, firstSegment, secondSegment, thirdSegment
     
     var creditModifier: Int {
         switch self {
         case .firstSegment: return 100
-        case .secongSegment: return 300
+        case .secondSegment: return 300
         case .thirdSegment: return 1000
         default: break
         }

@@ -13,7 +13,7 @@ struct StubbedData {
     static let customersList = [
         Customer(idCode: "49002010965", category: .debt),
         Customer(idCode: "49002010976", category: .firstSegment),
-        Customer(idCode: "49002010987", category: .secongSegment),
+        Customer(idCode: "49002010987", category: .secondSegment),
         Customer(idCode: "49002010998", category: .thirdSegment)
     ]
     
