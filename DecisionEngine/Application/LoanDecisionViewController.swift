@@ -106,14 +106,14 @@ final class LoanDecisionViewController: UIViewController {
     }
     
     private func setUpDecisionCallback() {
-        self.viewModel?.loanDecisionCompleted = { [weak self] canLoanBeApproved, maxSum in
+        self.viewModel?.loanDecisionCompleted = { [weak self] maxLoanSum in
             guard let self = self else { return }
             
-            let canOrNot = canLoanBeApproved ? "CAN" : "CAN NOT"
+            let canOrNot = maxLoanSum > 0 ? "CAN" : "CAN NOT"
             
                 self.approvalResultLabel.text = "The loan \(canOrNot) be approved."
                 
-                self.maxLoanSumLabel.text = maxSum > 0 ? "Max loan sum is \(maxSum) €" : ""
+                self.maxLoanSumLabel.text = maxLoanSum > 0 ? "Max loan sum is \(maxLoanSum) €" : ""
             
             self.applyButton.isHidden = true
         }
