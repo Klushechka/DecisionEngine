@@ -8,17 +8,12 @@
 
 import Foundation
 
-enum Error {
-    case idCodeUnknown, wrongCodeCharsNumber
-}
-
 protocol LoanDecisionViewModel {
     var loanPeriodOptions: [Int]? { get }
     var loanAmountOptions: [Int]? { get }
-    var errorOccured: ((Error) -> Void)? { get set }
+    var errorOccured: ((IdCodeError) -> Void)? { get set }
     var loanDecisionCompleted: ((Bool, Int) -> Void)? { get set }
     
     func fillLoanOptions()
     func resultForRequest(_ request: LoanRequest)
-    
 }

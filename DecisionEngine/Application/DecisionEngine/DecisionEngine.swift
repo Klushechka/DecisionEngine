@@ -28,11 +28,7 @@ final class DecisionEngine {
             return false
         }
         
-        let floatAmount = Float(desiredLoanAmount)
-        let floatCreditModifier = Float(customerCategory.creditModifier)
-        let floatLoanPeriod = Float(desiredPeriod)
-        
-        return creditScore(creditModifier: floatCreditModifier, amount: floatAmount, period: floatLoanPeriod) >= 1
+        return creditScore(creditModifier: Float(customerCategory.creditModifier), amount: Float(desiredLoanAmount), period: Float(desiredPeriod)) >= 1
     }
     
     func maxLoanAmount(customerCategory: ClientCategory, desiredLoanAmount: Int) -> Int {
@@ -53,7 +49,7 @@ final class DecisionEngine {
     }
     
     internal func creditScore(creditModifier: Float, amount: Float, period: Float) -> Float {
-        return creditModifier / amount * period
+        return (creditModifier / amount) * period
     }
     
     internal func adjustMaxAmountIfNeeded(with sum: Int) -> Int {

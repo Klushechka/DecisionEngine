@@ -8,12 +8,16 @@
 
 import Foundation
 
+enum IdCodeError {
+    case idCodeUnknown, wrongCodeCharsNumber
+}
+
 final class LoanDecisionViewModelImpl: LoanDecisionViewModel {
     
     var loanPeriodOptions: [Int]?
     var loanAmountOptions: [Int]?
     
-    var errorOccured: ((Error) -> Void)?
+    var errorOccured: ((IdCodeError) -> Void)?
     var loanDecisionCompleted: ((Bool, Int) -> Void)?
     
     var decisionEngine: DecisionEngine?
@@ -26,7 +30,7 @@ final class LoanDecisionViewModelImpl: LoanDecisionViewModel {
     
     func fillLoanOptions() {
         self.loanPeriodOptions = Array(DecisionEngine.minPeriod...DecisionEngine.maxPeriod)
-        self.loanAmountOptions = Array(DecisionEngine.minLoanAmount...DecisionEngine.maxLoanAmount).filter{ $0 % 100 == 0 }
+        self.loanAmountOptions = Array(DecisionEngine.minLoanAmount...DecisionEngine.maxLoanAmount).filter { $0 % 100 == 0 }
     }
     
     func resultForRequest(_ request: LoanRequest) {
@@ -34,6 +38,7 @@ final class LoanDecisionViewModelImpl: LoanDecisionViewModel {
             self.errorOccured?(.wrongCodeCharsNumber)
             return
         }
+        
         guard let customer = StubbedData.customersList.filter({ $0.idCode == request.idCode }).first else {
             self.errorOccured?(.idCodeUnknown)
             return

@@ -39,7 +39,7 @@ final class LoanDecisionViewController: UIViewController {
         decorateElements()
         setUpPickerViews()
         
-        configureTextFields()
+        prepareTextFields()
     }
     
     private func fillInContent() {
@@ -48,7 +48,7 @@ final class LoanDecisionViewController: UIViewController {
         self.idInfoLabel.text = Constants.idCodeInfoLabel
         
         self.currencyLabel.text = Constants.euroCurrency
-       
+        
         self.loanAmountTitleLabel.text = Constants.loanAmountTitle
         self.loanAmountTextField.placeholder = "0"
         
@@ -87,10 +87,10 @@ final class LoanDecisionViewController: UIViewController {
         
         setUpErrorCallback()
         setUpDecisionCallback()
-        }
+    }
     
     private func setUpErrorCallback() {
-        self.viewModel?.errorOccured = {[weak self] error in
+        self.viewModel?.errorOccured = { [weak self] error in
             guard let self = self else { return }
             
             var alertMessage: String
@@ -98,8 +98,8 @@ final class LoanDecisionViewController: UIViewController {
             switch error {
             case .idCodeUnknown:
                 alertMessage = Constants.idCodeNotFound
-                
-            case .wrongCodeCharsNumber: alertMessage = Constants.wrongCodeCharsNumber
+            case .wrongCodeCharsNumber:
+                alertMessage = Constants.wrongCodeCharsNumber
             }
             
             self.showDefaultStyleAlert(title: Constants.errorOccured, message: alertMessage, buttonLabel: Constants.closeButton)
@@ -125,13 +125,18 @@ final class LoanDecisionViewController: UIViewController {
     }
     
     @IBAction func applyButtonTapped(_ sender: Any) {
-        guard let idCodeText = self.idCodeTextField.text, let amount = Int(self.loanAmountTextField.text ?? ""), let period = Int(self.loanPeriodTextField.text ?? "") else { return }
+        guard let viewModel = self.viewModel,
+            let idCodeText = self.idCodeTextField.text,
+            let amount = Int(self.loanAmountTextField.text ?? ""),
+            let period = Int(self.loanPeriodTextField.text ?? "") else {
+                return
+        }
         
         self.periodPickerView.isHidden = true
         self.loanAmountPickerView.isHidden = true
         
         let request = LoanRequest(idCode: idCodeText, desiredLoanAmount: amount, desiredLoanPeriod: period)
-        self.viewModel?.resultForRequest(request)
+        viewModel.resultForRequest(request)
     }
     
 }
@@ -152,13 +157,14 @@ extension LoanDecisionViewController: UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        self.view.endEditing(true)
+        guard let viewModel = self.viewModel else { return nil }
+        
         var option = 0
         
-        if pickerView == self.periodPickerView, let periodOption = self.viewModel?.loanPeriodOptions?[row] {
+        if pickerView == self.periodPickerView, let periodOption = viewModel.loanPeriodOptions?[row] {
             option = periodOption
         }
-        else if let amountOption = self.viewModel?.loanAmountOptions?[row]{
+        else if let amountOption = viewModel.loanAmountOptions?[row]{
             option = amountOption
         }
         
@@ -166,11 +172,13 @@ extension LoanDecisionViewController: UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == self.periodPickerView, let periodOption = self.viewModel?.loanPeriodOptions?[row] {
-           self.loanPeriodTextField.text = String(periodOption)
-           self.periodPickerView.isHidden = true
+        guard let viewModel = self.viewModel else { return }
+        
+        if pickerView == self.periodPickerView, let periodOption = viewModel.loanPeriodOptions?[row] {
+            self.loanPeriodTextField.text = String(periodOption)
+            self.periodPickerView.isHidden = true
         }
-        else if let amountOption = self.viewModel?.loanAmountOptions?[row] {
+        else if let amountOption = viewModel.loanAmountOptions?[row] {
             self.loanAmountTextField.text = String(amountOption)
             self.loanAmountPickerView.isHidden = true
         }
@@ -195,19 +203,19 @@ extension LoanDecisionViewController: UIPickerViewDelegate, UIPickerViewDataSour
 
 extension LoanDecisionViewController: UITextFieldDelegate {
     
-    private func configureTextFields() {
+    private func prepareTextFields() {
         becomeTextFieldsDelegate()
-        setUpTextEditing()
+        addTargets()
     }
-
-    private func setUpTextEditing() {
+    
+    private func addTargets() {
         self.idCodeTextField.addTarget(self, action: #selector(enableApplyButtonIfNeeded), for: .editingDidEnd)
         self.idCodeTextField.addDoneButtonToKeyboard(myAction:  #selector(self.idCodeTextField.resignFirstResponder))
     }
-
+    
     @objc private func enableApplyButtonIfNeeded() {
         guard let loanAmountText = self.loanAmountTextField.text, let idCodeText = self.idCodeTextField.text, let amountPeriodText = self.loanPeriodTextField.text else { return }
-
+        
         self.applyButton.isEnabled = !loanAmountText.isEmpty && !idCodeText.isEmpty && !amountPeriodText.isEmpty
     }
     
@@ -241,14 +249,8 @@ extension LoanDecisionViewController: UITextFieldDelegate {
         return true
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard textField == self.idCodeTextField, let text = textField.text, let rangeOfTextToReplace = Range(range, in: text) else {
-            return false
-        }
-        let substringToReplace = text[rangeOfTextToReplace]
-        let count = text.count - substringToReplace.count + string.count
-        
-        return count <= 11
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return range.location < 11
     }
     
 }
