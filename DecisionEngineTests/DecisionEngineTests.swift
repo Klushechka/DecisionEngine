@@ -86,13 +86,13 @@ class DecisionEngineTests: XCTestCase {
     }
     
     func testRoundingAmountLessThanMinToMin() {
-        let roundedMaxAmount = self.decisionEngine.adjustMaxAmountIfNeeded(with: 1500)
+        let roundedMaxAmount = self.decisionEngine.adjustMaxAmountIfNeeded(with: 1950)
         
         XCTAssertEqual(roundedMaxAmount, DecisionEngine.minLoanAmount)
     }
     
     func testRoundingAmountLessThanMinToZero() {
-        let roundedMaxAmount = self.decisionEngine.adjustMaxAmountIfNeeded(with: 1449)
+        let roundedMaxAmount = self.decisionEngine.adjustMaxAmountIfNeeded(with: 1900)
         
         XCTAssertEqual(roundedMaxAmount, 0)
     }

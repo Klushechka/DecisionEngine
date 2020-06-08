@@ -32,4 +32,6 @@ struct Constants {
     static let canNotCaps = "CAN NOT"
     static let maxLoanAmountIs = "Max loan amount with max period is €%@."
     
+    static let done = "Done"
+    
 }

@@ -58,7 +58,7 @@ final class DecisionEngine {
         }
         
         if sum < DecisionEngine.minLoanAmount  {
-            return sum.round(to: 1000) == DecisionEngine.minLoanAmount ? DecisionEngine.minLoanAmount : 0
+            return sum.round(to: 100) == DecisionEngine.minLoanAmount ? DecisionEngine.minLoanAmount : 0
         }
         
         return sum.round(to: 100)
